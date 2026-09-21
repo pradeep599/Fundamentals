@@ -49,8 +49,6 @@ public class Method {
 		int result=s*s;
 		System.out.println("Area Of a Sqquare:"+result);
 	}
-	
-	double 
 
 	public static void main(String[] args) {
 
