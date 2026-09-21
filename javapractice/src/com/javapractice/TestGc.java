@@ -1,5 +1,25 @@
 package com.javapractice;
 
+
+class A{
+	
+	B b;
+	@Override
+	protected void finalize() throws Throwable {
+		System.out.println("Finalized A method Called");
+	}
+	
+}
+
+class B{
+	
+	A a;
+	@Override
+	protected void finalize() throws Throwable {
+		System.out.println("Finalized B method Called");
+	}
+}
+
 public class TestGc {
 	
 	@Override
@@ -14,24 +34,44 @@ public class TestGc {
 	public static void main(String[] args) {
 		
 		System.out.println("Main Method started");
-		TestGc G1=new TestGc();
+//		TestGc G1=new TestGc();
 //		TestGc G2=new TestGc();
 //		TestGc G3=new TestGc();
 //		TestGc G4=new TestGc();
 		
 		
-		System.out.println(G1);
+//		G2=null;
+//		G1=G2;
+//		G1=null;
+		
+		
+		
+//		System.out.println(G1);
 //		System.out.println(G2);
-//		System.out.println(G3);
-//		System.out.println(G4);
+//		System.out.println(G5);
+//		object();
+//		
+		A obj1=new A();
+		B obj2=new B();
 		
-		
-		System.out.println("Main Method ended");
-		
-		G1=null;
+		obj1.b=obj2;
+		obj2.a=obj1;
+		obj1=null;
+		obj2=null;
+		System.out.println(obj1);
+		System.out.println(obj2);
 		
 		
 		System.gc();
+		
+		
+		
+		
+		System.out.println("Main Method ended");
 	}
 
+//	static void object() {
+//		TestGc G5=new TestGc();
+//
+//	}
 }
