@@ -17,29 +17,24 @@ public class BugTracker {
 	}
 	
 	String getApplicationName() {
-		System.out.println("Application Name:"+applicationName);
 		return applicationName;
 	}
 	
 	String getBugTitle() {
-		System.out.println("Bug Title:"+bugtitle);
 		return bugtitle;
 	}
 
 	String getseverity() {
-		System.out.println("Severity:"+severity);
 		return severity;
 		
 	}
 	
 	String getPriority() {
-		System.out.println("Priority:"+priority);
 		return priority;
 		
 	}
 	
 	String getstatus() {
-		System.out.println("Status:"+status);
 		return status;
 		
 	}
@@ -49,17 +44,24 @@ public class BugTracker {
 		
 	}
 	
-	void assignToDeveloper(int bugid, String developerName) {
-		
-		assignedDeveloper=developerName;
+	void assignToDeveloper(int bug_id, String developerName,String Pgr) {
+			assignedDeveloper=developerName;
+		updateStatus(Pgr);
 	}
 	
-	void updateStatus() {
-		
+	String updateStatus(String newstatus) {
+		status=newstatus;
+		return newstatus;
 	}
 	
 	void displayBugSummary() {
 		System.out.println("BugID:"+getBugid());
+		System.out.println("Application Name:"+getApplicationName());
+		System.out.println("Bug Title:"+getBugTitle());
+		System.out.println("Severity:"+getseverity());
+		System.out.println("Priority:"+getPriority());
+		System.out.println("Status:"+getstatus());
+		System.out.println("Assigned Developer:"+getAssignedDeveloper());
 		
 		
 	}
@@ -70,15 +72,20 @@ public class BugTracker {
 		BugTracker b1=new BugTracker();
 		
 		b1.bugid=101;
-		b1.applicationName="";
-		b1.bugtitle="";
-		b1.severity="";
-		b1.priority="";
-		b1.status="";
-		b1.assignedDeveloper="";
-		
-		b1.getBugid();
+		b1.applicationName="Amazon Prime Video";
+		b1.bugtitle="Login Error";
+		b1.severity="High Needed";
+		b1.priority="Main";
+		b1.status="Bug Generated";
+		b1.assignedDeveloper="Not Assigned";		
 		b1.displayBugSummary();
+		System.out.println("************************************");
+		
+		
+		b1.assignToDeveloper(101, "Vasu","In Development");
+		
+		b1.displayBugSummary();
+
 	}
 
 }
