@@ -21,6 +21,14 @@ public class BankAccounts {
 		this.branch=br;
 		
 	}
+	
+	BankAccounts(BankAccounts b2,String nm, long accno){
+		this.accountNumber=accno;
+		this.accountHolderName=nm;
+		this.balance=b2.balance;
+		this.branch=b2.branch;
+		
+	}
 
 	
 	void displayAccountdetails() {
@@ -38,6 +46,9 @@ public class BankAccounts {
 		
 		BankAccounts b2=new BankAccounts(b1,3637474.865,"Hyderabad");
 		b2.displayAccountdetails();
+		
+		BankAccounts b3=new BankAccounts(b2,"Ramesh",45365376833L);
+		b3.displayAccountdetails();
 	}
 
 }
